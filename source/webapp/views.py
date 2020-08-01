@@ -4,13 +4,15 @@ from webapp.forms import EntryForm, SearchForm
 
 
 def index_view(request):
-    form = SearchForm(data=request.GET)
+    form_1 = SearchForm(data=request.GET)
+    form_2 = EntryForm()
     entries = Entry.objects.filter(status='active').order_by('-created_at')
-    if form.is_valid():
-        search = form.cleaned_data["search"]
+    if form_1.is_valid():
+        search = form_1.cleaned_data["search"]
         if search:
-            entries = entries.filter(name__icontains=form.cleaned_data["search"])
-    return render(request, 'index.html', {'entries': entries, 'form': form})
+            entries = entries.filter(name__icontains=form_1.cleaned_data["search"])
+    return render(request, 'index.html', {'entries': entries, 'form_1': form_1, 'form_2': form_2})
+
 
 
 def create_view(request):

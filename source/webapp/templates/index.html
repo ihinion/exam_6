@@ -9,7 +9,7 @@
 
 {% block content %}
     <form class="mb-3" action="{% url 'index_view' %}" method="GET">
-        {% include 'partial/form.html' with button_text='Search' %}
+        {% include 'partial/form.html' with button_text='Search' form=form_1 %}
     </form>
     {% for entry in entries %}
         <div class="card bg-light mb-3">
@@ -23,5 +23,7 @@
             </div>
         </div>
     {% endfor %}
-    <a class="btn btn-primary btn-lg btn-block mb-4" href="{% url 'create_view' %}" role="button">Add</a>
+    <form class="mb-5" action="{% url 'create_view' %}" method="POST">
+        {% include 'partial/form.html' with button_text='Add' form=form_2 %}
+    </form>
 {% endblock %}
