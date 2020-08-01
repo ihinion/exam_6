@@ -1,11 +1,18 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from webapp.models import Entry
-from webapp.forms import EntryForm
+from webapp.forms import EntryForm, SearchForm
 
 
 def index_view(request):
-    entries = Entry.objects.filter(status='active')
-    return render(request, 'index.html', {'entries': entries})
+    form = SearchForm(data=request.GET)
+    entries = Entry.objects.filter(status='active').order_by('-created_at')
+    if form.is_valid():
+        name = form.cleaned_data["name"]
+        if name:
+            entries = Entry.objects.filter(name=form.cleaned_data["name"], status='active').order_by('-created_at')
+    else:
+        entries = entries
+    return render(request, 'index.html', {'entries': entries, 'form': form})
 
 
 def create_view(request):

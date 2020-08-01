@@ -76,5 +76,29 @@
     "updated_at": "2020-08-01T05:38:03.945Z",
     "status": "blocked"
   }
+},
+{
+  "model": "webapp.entry",
+  "pk": 6,
+  "fields": {
+    "name": "Angry admin",
+    "mail": "admin@djangosolutions.com",
+    "text": "This is just a test, nothing to see here!",
+    "created_at": "2020-08-01T06:26:49.516Z",
+    "updated_at": "2020-08-01T06:26:49.516Z",
+    "status": "active"
+  }
+},
+{
+  "model": "webapp.entry",
+  "pk": 7,
+  "fields": {
+    "name": "Angry admin",
+    "mail": "admin@djangosolutions.com",
+    "text": "(\u0ca0_\u0ca0) hmmm...\r\n\r\nhttps://i.imgur.com/jVr0W4P.png",
+    "created_at": "2020-08-01T06:31:01.744Z",
+    "updated_at": "2020-08-01T08:48:00.527Z",
+    "status": "active"
+  }
 }
 ]
