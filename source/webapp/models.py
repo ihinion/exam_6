@@ -10,7 +10,7 @@ DEFAULT_STATUS = STATUS_CHOICES[0][0]
 
 class Entry(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False, verbose_name='Name')
-    mail = models.EmailField(max_length=30, null=False, blank=False, verbose_name='Email')
+    mail = models.EmailField(max_length=60, null=False, blank=False, verbose_name='Email')
     text = models.CharField(max_length=500, null=False, blank=False, verbose_name='Text')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
