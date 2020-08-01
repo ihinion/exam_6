@@ -15,7 +15,7 @@
                 <p class="text-justify">{{ entry.text }}</p>
                 <form class="form-inline">
                     <a class="btn btn-danger btn-sm mr-3" href="#" role="button">Delete</a>
-                    <a class="btn btn-info btn-sm" href="#" role="button">Update</a>
+                    <a class="btn btn-info btn-sm" href="{% url 'update_view' entry.pk %}" role="button">Update</a>
                 </form>
             </div>
         </div>
