@@ -9,7 +9,7 @@
 
 {% block content %}
     <form class="mb-3" action="{% url 'index_view' %}" method="GET">
-        {% include 'partial/search_form.html' %}
+        {% include 'partial/form.html' with button_text='Search' %}
     </form>
     {% for entry in entries %}
         <div class="card bg-light mb-3">

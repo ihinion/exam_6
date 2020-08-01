@@ -1,9 +1,12 @@
-{% load widget_tweaks %}{% csrf_token %}
+{% load widget_tweaks %}
+{% csrf_token %}
 {% for error in form.non_field_errors %}
     <p class="form-error">{{ error }}</p>
 {% endfor %}
 {% for field in form %}
+    {% if form.label is not 'Search' %}
     <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+    {% endif %}
     {% for error in field.errors %}
         <p class="form-error">{{ error }}</p>
     {% endfor %}
@@ -11,9 +14,13 @@
         <p>{{ field|add_class:'form-control'|attr:'placeholder:Name' }}</p>
     {% elif field.name == 'mail' %}
     <p>{{ field|add_class:'form-control'|attr:'placeholder:Email Address' }}</p>
+    {% elif field.name == 'search' %}
+    <p>{{ field|add_class:'form-control'|attr:'placeholder:Search by author' }}</p>
     {% else %}
         <p>{{ field|add_class:'form-control' }}</p>
     {% endif %}
 {% endfor %}
 <input class="btn btn-primary" type="submit" value="{{ button_text }}">
-<a class="btn btn-warning" href="{% url 'index_view' %}" role="button">Cancel</a>
+{% if button_text_2 %}
+<a class="btn btn-warning" href="{% url 'index_view' %}" role="button">{{ button_text_2 }}</a>
+{% endif %}

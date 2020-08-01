@@ -9,4 +9,4 @@ class EntryForm(forms.Form):
 
 
 class SearchForm(forms.Form):
-    name = forms.CharField(max_length=50, required=False, label='Name')
+    search = forms.CharField(max_length=50, required=False, label='Search')

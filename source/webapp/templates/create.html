@@ -3,6 +3,6 @@
 {% block content %}
 <h2 class="my-3">Add entry</h2>
     <form action="{% url 'create_view' %}" method="post">
-    {% include 'partial/entry_form.html' with button_text='Create' %}
+    {% include 'partial/form.html' with button_text='Create' button_text_2='Cancel' %}
     </form>
 {% endblock %}

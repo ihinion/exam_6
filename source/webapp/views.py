@@ -7,11 +7,9 @@ def index_view(request):
     form = SearchForm(data=request.GET)
     entries = Entry.objects.filter(status='active').order_by('-created_at')
     if form.is_valid():
-        name = form.cleaned_data["name"]
-        if name:
-            entries = Entry.objects.filter(name=form.cleaned_data["name"], status='active').order_by('-created_at')
-    else:
-        entries = entries
+        search = form.cleaned_data["search"]
+        if search:
+            entries = entries.filter(name__icontains=form.cleaned_data["search"])
     return render(request, 'index.html', {'entries': entries, 'form': form})
 
 
