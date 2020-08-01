@@ -3,7 +3,7 @@
 {% block nav %}
 <nav class="navbar navbar-dark bg-primary mb-4">
     <a class="navbar-brand font-weight-bold" href="{% url 'index_view' %}">GuestBook</a>
-    <a class="navbar-brand font-weight-bold" href="#">Add</a>
+    <a class="navbar-brand font-weight-bold" href="{% url 'create_view' %}">Add</a>
 </nav>
 {% endblock %}
 
@@ -20,5 +20,5 @@
             </div>
         </div>
     {% endfor %}
-    <a class="btn btn-primary btn-lg btn-block mb-4" href="#" role="button">Add</a>
+    <a class="btn btn-primary btn-lg btn-block mb-4" href="{% url 'create_view' %}" role="button">Add</a>
 {% endblock %}
