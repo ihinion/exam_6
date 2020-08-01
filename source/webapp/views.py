@@ -40,3 +40,11 @@ def update_view(request, pk):
             return redirect('index_view')
         else:
             return render(request, 'update.html', context={'form': form, 'entry': entry})
+
+
+def delete_view(request, pk):
+    entry = get_object_or_404(Entry, pk=pk)
+    if request.method == "POST":
+        entry.delete()
+        return redirect('index_view')
+    return render(request, 'delete.html', {'entry': entry})

@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}Update entry{% endblock %}
 {% block content %}
-<div class="container">
     <h2 class="my-3">Update entry {{ entry.pk }}</h2>
     <form action="{% url 'update_view' entry.pk %}" method="post">
         {% include 'partial/entry_form.html' with button_text='Update' %}
     </form>
-</div>
 {% endblock %}
